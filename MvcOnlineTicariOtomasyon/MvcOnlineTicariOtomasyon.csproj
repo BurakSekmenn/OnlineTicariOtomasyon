@@ -282,6 +282,8 @@
     <Content Include="Web\src\scss\variables\_spacing.scss" />
     <Content Include="Web\src\scss\_global.scss" />
     <Content Include="Web\src\scss\_variables.scss" />
+    <Content Include="Views\Kategoriler\KategoriEkle.cshtml" />
+    <Content Include="Views\Kategoriler\KategoriGetir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
