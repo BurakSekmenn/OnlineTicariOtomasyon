@@ -1,0 +1,35 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<Urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+<table class="table table-bordered" style="margin-top:20px; margin-left:20px;  width:97%;">
+    <tr>
+        <th>ID</th>
+        <th>Ürün Adı</th>
+        <th>Marka Adı</th>
+        <th>Stok</th>
+        <th>Alış Fiyatı</th>
+        <th>Satış Fiyatı</th>
+        <th>Kategori</th>
+        <th>Görsel</th>
+    </tr>
+    @foreach (var u in Model)
+            {
+                <tr>
+                    <td>@u.Urunid</td>
+                    <td>@u.UrunAd</td>
+                    <td>@u.Marka</td>
+                    <td>@u.Stok</td>
+                    <td>@u.AlisFiyat</td>
+                    <td>@u.SatisFiyat</td>
+                    <td>@u.Kategori.KategoriAd</td>
+                    <td>@u.UrunGorsel</td>
+                </tr>
+            }
+
+
+</table>
+<a href="/Urun/YeniUrun" class="btn btn-primary" style="margin-left:20px;">Yeni Kategori Ekle</a>
+
