@@ -4,37 +4,66 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Admin.cshtml";
 }
-<table class="table table-bordered" style="margin-top:20px; margin-left:20px;  width:97%;">
-    <tr>
-        <th>ID</th>
-        <th>Ürün Adı</th>
-        <th>Marka Adı</th>
-        <th>Stok</th>
-        <th>Alış Fiyatı</th>
-        <th>Satış Fiyatı</th>
-        <th>Kategori</th>
-        <th>Görsel</th>
-        <th>İşlemler</th>
-    </tr>
-    @foreach (var u in Model)
-            {
-                <tr>
-                    <td>@u.Urunid</td>
-                    <td>@u.UrunAd</td>
-                    <td>@u.Marka</td>
-                    <td>@u.Stok</td>
-                    <td>@u.AlisFiyat</td>
-                    <td>@u.SatisFiyat</td>
-                    <td>@u.Kategori.KategoriAd</td>
-                    <td>@u.UrunGorsel</td>
-                    <td>
-                        <a href="/Urun/UrunSil/@u.Urunid" class="btn btn-primary">Sil</a>
-                        <a href="/Urun/UrunGuncelle/@u.Urunid" class="btn btn-danger">Güncelle</a>
-                    </td>
-                </tr>
-            }
+<div class="card mb-4" style="margin-top:20px;">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Ürün Ekle</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ürün Adı</th>
+                        <th>Marka Adı</th>
+                        <th>Stok</th>
+                        <th>Alış Fiyatı</th>
+                        <th>Satış Fiyatı</th>
+                        <th>Kategori</th>
+                        <th>Görsel</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ürün Adı</th>
+                        <th>Marka Adı</th>
+                        <th>Stok</th>
+                        <th>Alış Fiyatı</th>
+                        <th>Satış Fiyatı</th>
+                        <th>Kategori</th>
+                        <th>Görsel</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var u in Model)
+                    {
+                        <tr>
+                            <td>@u.Urunid</td>
+                            <td>@u.UrunAd</td>
+                            <td>@u.Marka</td>
+                            <td>@u.Stok</td>
+                            <td>@u.AlisFiyat</td>
+                            <td>@u.SatisFiyat</td>
+                            <td>@u.Kategori.KategoriAd</td>
+                            <td>@u.UrunGorsel</td>
+                            <td>
+                                <a href="/Urun/UrunSil/@u.Urunid" class="btn btn-primary">Sil</a>
+                                <a href="/Urun/UrunGuncelle/@u.Urunid" class="btn btn-danger">Güncelle</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 
-</table>
-<a href="/Urun/YeniUrun" class="btn btn-primary" style="margin-left:20px;">Yeni Kategori Ekle</a>
+
+
+
+
+
+<a href="/Urun/YeniUrun" class="btn btn-primary" style="margin-left:20px;">Yeni Ürün Ekle</a>
 
