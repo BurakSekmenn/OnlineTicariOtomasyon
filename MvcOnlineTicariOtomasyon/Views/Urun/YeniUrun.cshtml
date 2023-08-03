@@ -23,10 +23,12 @@
 
 
     <label>Satış Fiyatını giriniz:</label>
-    @Html.TextBoxFor(x => x.AlisFiyat, new { @class = "form-control", required = "required" })
+    @Html.TextBoxFor(x => x.SatisFiyat, new { @class = "form-control", required = "required" })
 
     <label>Kategori giriniz:</label>
-    @Html.TextBoxFor(x => x.kategoriid, new { @class = "form-control", required = "required" })
+    @*@Html.TextBoxFor(x => x.kategoriid, new { @class = "form-control", required = "required" })*@
+    @Html.DropDownListFor(x=>x.kategoriid,(List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control", required = "required" })<br />
+
 
     <label>Durumu Seçiniz:</label>
     @Html.TextBoxFor(x => x.Durum, new { @class = "form-control", required = "required" })
