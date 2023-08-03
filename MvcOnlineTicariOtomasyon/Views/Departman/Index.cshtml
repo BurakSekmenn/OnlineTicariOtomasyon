@@ -1,0 +1,51 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar;
+@model List<Departman>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+
+<div class="card mb-4" style="margin-top:20px;">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Departman Ekle</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Departman Adı</th>
+                        <th>İslemler</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Departman Adı</th>
+                        <th>İslemler</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var u in Model)
+                    {
+                       <tr>
+                           <td>@u.Departmanid</td>
+                           <td>@u.DepartmanAd</td>
+                           <td>
+                               <a href="/Departman/DepartmanGetir/@u.Departmanid" class="btn btn-primary" style="width:100px;">Güncelle</a>
+                               <a href="/Departman/DepartmanSil/@u.Departmanid" class="btn btn-danger" style="margin-left: 10px; width: 100px;">Sil</a>
+                               <a href="/Departman/DepartmanDetay/@u.Departmanid" class="btn btn-success" style="margin-left: 10px; width: 150px; background-color:lightcoral; color:white;">Departman Detay</a>
+                           </td>
+                       </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+<a href="/Departman/DepartmanEkle" class="btn btn-primary" style="margin-left:20px;">Yeni Departman Ekle</a>
+
