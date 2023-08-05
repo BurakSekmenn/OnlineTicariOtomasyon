@@ -5,13 +5,12 @@
     Layout = "~/Views/Shared/Admin.cshtml";
 }
 <br />
-<h2>Departman Detay Sayfası</h2>
+<h2 style="width:97%; margin-left:20px;">Departman Detay Sayfası</h2>
 <br />
 
-<div style="background-color:darkgray; margin-left:20px; width:97%;">
-    
-    asdasd
-</div>
+<ol class="breadcrumb mb-4" style="width:97%; margin-left:20px;">
+    <li class="breadcrumb-item active">Deprtman Adı : @ViewBag.d</li>
+</ol>
 <br />
 <table class="table table-hover" style="margin-left: 20px; width: 97%;">
     <tr>
@@ -28,7 +27,7 @@
             <td>@x.PersonelAd</td>
             <td>@x.PersonelSoyadı</td>
             <td>@x.PersonelGorsel</td>
-            <td><a href="#" class="btn btn-info">Satışları Gör </a></td>
+            <td><a href="/Departman/DepartmanPersonelSatis/@x.Personelid" class="btn btn-info">Satışları Gör </a></td>
         </tr>
     }
 
