@@ -1,0 +1,26 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Sınıflar.Cariler
+@{
+    ViewBag.Title = "CariEkle";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<br />
+<h2 style="margin-left:20px;">Yeni Cari Sayfası</h2>
+<br />
+<form style="margin-left:20px;" class="form-group" method="post">
+    <label for="KategoriAd">Cari adı giriniz:</label>
+    @Html.TextBoxFor(x => x.Cariad, new { @class = "form-control", required = "required" })
+
+    <label for="KategoriAd">Cari soyadı giriniz:</label>
+    @Html.TextBoxFor(x => x.CariSoyadı, new { @class = "form-control", required = "required" })
+
+    <label for="KategoriAd">Cari Şehir giriniz:</label>
+    @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control", required = "required" })
+
+    <label for="KategoriAd">Cari Mail giriniz:</label>
+    @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control", required = "required" })
+
+    <button class="btn btn-info" style="margin-top:10px;">Kaydet</button>
+
+</form>
+

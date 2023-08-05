@@ -12,7 +12,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Sınıflar
         [Key]
         public int Cariid { get; set; }
         [Column(TypeName = "Varchar")]
-        [StringLength(30)]
+        [StringLength(30,ErrorMessage ="En Fazla 30 Karakter Yazabilirsiniz.")]
         public string Cariad { get; set; }
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
