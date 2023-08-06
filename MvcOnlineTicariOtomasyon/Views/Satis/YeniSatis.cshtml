@@ -1,0 +1,46 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Sınıflar.SatisHareket
+
+@{
+    ViewBag.Title = "YeniSatis";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<br />
+<h2 style="margin-left:20px;">Yeni Satış Sayfası</h2>
+<br />
+<form style="margin-left:20px;" class="form-group" method="post">
+    <label>Urunu Seçiniz </label>
+    @Html.DropDownListFor(x => x.Urunid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control", required = "required" })
+
+
+    <label>Cari Adını Seçiniz:</label>
+    @Html.DropDownListFor(x => x.Cariid, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control", required = "required" })
+
+
+    <label>Satış Yapan Personeli Seçiniz:</label>
+    @Html.DropDownListFor(x => x.Personelid, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control", required = "required" })
+
+    <label>Adet Giriniz:</label>
+    @Html.TextBoxFor(x => x.Adet, new { @class = "form-control", required = "required" })
+
+    <label>Fiyat Giriniz:</label>
+    @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control", required = "required" })
+
+    <label>Toplam Fiyatı Giriniz:</label>
+    @Html.TextBoxFor(x => x.ToplamTutar, new { @class = "form-control", required = "required" })
+
+    
+
+
+
+    <button class="btn btn-info" style="margin-top:10px;">Satış Yap</button>
+
+
+
+
+
+
+
+
+</form>
+

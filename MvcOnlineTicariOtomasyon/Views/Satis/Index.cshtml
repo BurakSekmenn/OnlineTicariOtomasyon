@@ -1,0 +1,67 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+<br />
+<h2 style="margin-left:20px;">Satışlarımız</h2>
+<br />
+<div class="card mb-4" style="margin-top:20px;">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Satışlar </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Urun Ad</th>
+                        <th>Satılan Cari Ad</th>
+                        <th>Satan Personel Ad</th>
+                        <th>Adet</th>
+                        <th>Toplam Tutar</th>
+                        <th>Satis Tarih</th>
+                        <th>İslemler</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Urun Ad</th>
+                        <th>Satılan Cari Ad</th>
+                        <th>Satan Personel Ad</th>
+                        <th>Adet</th>
+                        <th>Toplam Tutar</th>
+                        <th>Satis Tarih</th>
+                        <th>İslemler</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var u in Model)
+                    {
+                        <tr>
+                            <td>@u.Satisid</td>
+                            <td>@u.Urun.UrunAd</td>
+                            <td>@u.Cariler.Cariad @u.Cariler.CariSoyadı</td>
+                            <td>@u.Personel.PersonelAd @u.Personel.PersonelSoyadı</td>
+
+                            <td>@u.Adet</td>
+                            <td>@u.ToplamTutar</td>
+                            <td>@u.Tarih</td>
+                            <td>
+                                <a href="/Satis/DepartmanGetir/@u.Satisid" class="btn btn-primary" style="width:100px;">Güncelle</a>
+
+                                <a href="/Satis/DepartmanDetay/@u.Satisid" class="btn btn-dark" style="margin-left: 10px; width: 150px; color:white;">Satış Detay</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+<a href="/Satis/YeniSatis" class="btn btn-primary" style="margin-left:20px;">Yeni Satış Yap</a>
