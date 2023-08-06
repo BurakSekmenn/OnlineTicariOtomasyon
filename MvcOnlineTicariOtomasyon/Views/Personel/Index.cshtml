@@ -1,0 +1,59 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<div class="card mb-4" style="margin-top:20px;">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Departman Ekle</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Personel Adı</th>
+                        <th>Personel SoyAdı</th>
+                        <th>Personel Görsel</th>
+                        <th>Personel Departmanı</th>
+                        <th>İslemler</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Personel Adı</th>
+                        <th>Personel SoyAdı</th>
+                        <th>Personel Görsel</th>
+                        <th>Personel Departmanı</th>
+                        <th>İslemler</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var u in Model)
+                    {
+                        <tr>
+                            <td>@u.Personelid</td>
+                            <td>@u.PersonelAd</td>
+                            <td>@u.PersonelSoyadı</td>
+                            <td>@u.PersonelGorsel</td>
+                            <td>@u.Departman.DepartmanAd</td>
+
+                            <td>
+                                <a href="/Personel/PersonelGetir/@u.Personelid" class="btn btn-primary" style="width:100px;">Güncelle</a>
+                                <a href="/Departman/DepartmanPersonelSatis/@u.Personelid" class="btn btn-dark" style="margin-left: 10px; width: 150px; color:white;">Personel Satışlar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+<a href="/Personel/PersonelEkle" class="btn btn-primary" style="margin-left:20px;">Yeni Personel Ekle</a>
+
