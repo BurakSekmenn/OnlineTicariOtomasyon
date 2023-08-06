@@ -49,5 +49,13 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult MusteriSatis(int id)
+        {
+            var degerler = c.SatisHarekets.Where(x => x.Cariid == id).ToList();
+            var cr = c.Carilers.Where(x => x.Cariid == id).Select(y => y.Cariad + " " + y.CariSoyadı).FirstOrDefault();
+            ViewBag.cari = cr;
+            return View(degerler);
+        }
     }
 }
