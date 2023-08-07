@@ -11,7 +11,7 @@
     <div class="card-header"><i class="fas fa-table mr-1"></i>Satışlar </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-bordered" id="tbl1" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -49,9 +49,9 @@
                             <td>@u.ToplamTutar</td>
                             <td>@u.Tarih</td>
                             <td>
-                                <a href="/Satis/DepartmanGetir/@u.Satisid" class="btn btn-primary" style="width:100px;">Güncelle</a>
+                                <a href="/Satis/SatisGetir/@u.Satisid" class="btn btn-primary" style="width:100px;">Güncelle</a>
 
-                                <a href="/Satis/DepartmanDetay/@u.Satisid" class="btn btn-dark" style="margin-left: 10px; width: 150px; color:white;">Satış Detay</a>
+                                <a href="/Satis/SatisDetay/@u.Satisid" class="btn btn-dark" style="margin-left: 10px; width: 150px; color:white;">Satış Detay</a>
                             </td>
                         </tr>
                     }
@@ -65,3 +65,16 @@
 
 
 <a href="/Satis/YeniSatis" class="btn btn-primary" style="margin-left:20px;">Yeni Satış Yap</a>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>

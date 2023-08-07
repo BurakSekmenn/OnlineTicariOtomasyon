@@ -6,10 +6,10 @@
 }
 
 <div class="card mb-4" style="margin-top:20px;">
-    <div class="card-header"><i class="fas fa-table mr-1"></i>Departman Ekle</div>
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Personellerimiz</div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-bordered" id="tbl1" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -54,5 +54,28 @@
 
 
 
+
+
+
+
+
+
+
 <a href="/Personel/PersonelEkle" class="btn btn-primary" style="margin-left:20px;">Yeni Personel Ekle</a>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+    <script>
+        $('#tbl1').dataTable({});
+    </script>
+
 

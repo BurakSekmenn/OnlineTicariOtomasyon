@@ -1,0 +1,55 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "SatisDetay";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<br />
+<h2 style="width:97%; margin-left:20px;">Satis Detayı</h2>
+<br />
+
+<table id="tbl1" class="table table-group-divider" style="width:97%; margin-left:20px;">
+    <thead>
+        <tr>
+            <th>Satış İd</th>
+            <th>Ürün</th>
+            <th>Cari</th>
+            <th>Personel</th>
+            <th>Fiyat</th>
+            <th>Adet</th>
+            <th>Toplam</th>
+            <th>Tarih</th>
+
+        </tr>
+    </thead>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Satisid</td>
+            <td>@x.Urun.UrunAd</td>
+            <td>@x.Cariler.Cariad  @x.Cariler.CariSoyadı</td>
+            <td>@x.Personel.PersonelAd  @x.Personel.PersonelSoyadı</td>
+            <td>@x.Fiyat</td>
+            <td>@x.Adet</td>
+            <td>@x.ToplamTutar</td>
+            <td>@x.Tarih</td>
+
+        </tr>
+    }
+
+</table>
+<button class="btn btn-primary" style="background-color:dodgerblue; margin-left:20px;">Yazdır</button>
+
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>

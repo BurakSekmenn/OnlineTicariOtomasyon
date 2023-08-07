@@ -5,24 +5,26 @@
     Layout = "~/Views/Shared/Admin.cshtml";
 }
 <br />
-<h2 style="width:97%; margin-left:20px;" >Departman Personel Satis</h2>
+<h2 style="width:97%; margin-left:20px;">Departman Personel Satis</h2>
 <br />
 
 <ol class="breadcrumb mb-4" style="width:97%; margin-left:20px;">
     <li class="breadcrumb-item active">Personel Adı : @ViewBag.dpers</li>
 </ol>
 
-<table class="table table-group-divider" style="width:97%; margin-left:20px;">
-    <tr>
-        <th>Satış İd</th>
-        <th>Ürün</th>
-        <th>Cari</th>
-        <th>Fiyat</th>
-        <th>Adet</th>
-        <th>Toplam</th>
-        <th>Tarih</th>
-        <th>Yazdır</th>
-    </tr>
+<table class="table table-group-divider" id="tbl1" style="width:97%; margin-left:20px;">
+    <thead>
+        <tr>
+            <th>Satış İd</th>
+            <th>Ürün</th>
+            <th>Cari</th>
+            <th>Fiyat</th>
+            <th>Adet</th>
+            <th>Toplam</th>
+            <th>Tarih</th>
+            <th>Yazdır</th>
+        </tr>
+    </thead>
     @foreach (var x in Model)
     {
         <tr>
@@ -38,3 +40,14 @@
     }
 
 </table>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>
+
