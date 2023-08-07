@@ -60,6 +60,25 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             ViewBag.dpers = dpt;
             return View(degerler);
         }
+        public ActionResult GeneratePDF(int id)
+        {
+            var degerler = c.SatisHarekets.Where(x => x.Personelid == id).ToList();
+            var dpt = c.Personels.Where(x => x.Personelid == id).Select(y => y.PersonelAd + " " + y.PersonelSoyadı).FirstOrDefault();
+            ViewBag.dpers = dpt;
+
+            return new Rotativa.PartialViewAsPdf("tablo", degerler)
+            {
+                FileName = "PersonelSatislar.pdf",
+                PageSize = Rotativa.Options.Size.A4,
+                PageOrientation = Rotativa.Options.Orientation.Landscape
+            };
+        }
+        public ActionResult DownloadPDF()
+        {
+            string filePath = Server.MapPath("~/Rotativa/PersonelSatislar.pdf"); // Önceki PDF dosyasının yolu
+            byte[] fileBytes = System.IO.File.ReadAllBytes(filePath);
+            return File(fileBytes, "application/pdf", "PersonelSatislar.pdf");
+        }
 
     }
 }

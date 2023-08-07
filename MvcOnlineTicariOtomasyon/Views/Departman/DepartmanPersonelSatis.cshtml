@@ -4,42 +4,42 @@
     ViewBag.Title = "DepartmanPersonelSatis";
     Layout = "~/Views/Shared/Admin.cshtml";
 }
-<br />
-<h2 style="width:97%; margin-left:20px;">Departman Personel Satis</h2>
-<br />
+
 
 <ol class="breadcrumb mb-4" style="width:97%; margin-left:20px;">
     <li class="breadcrumb-item active">Personel Adı : @ViewBag.dpers</li>
 </ol>
 
-<table class="table table-group-divider" id="tbl1" style="width:97%; margin-left:20px;">
-    <thead>
-        <tr>
-            <th>Satış İd</th>
-            <th>Ürün</th>
-            <th>Cari</th>
-            <th>Fiyat</th>
-            <th>Adet</th>
-            <th>Toplam</th>
-            <th>Tarih</th>
-            <th>Yazdır</th>
-        </tr>
-    </thead>
-    @foreach (var x in Model)
-    {
-        <tr>
-            <td>@x.Satisid</td>
-            <td>@x.Urun.UrunAd</td>
-            <td>@x.Cariler.Cariad  @x.Cariler.CariSoyadı</td>
-            <td>@x.Fiyat</td>
-            <td>@x.Adet</td>
-            <td>@x.ToplamTutar</td>
-            <td>@x.Tarih</td>
-            <td><a href="#" class="btn btn-primary" style="background-color:dodgerblue">Yazdır</a></td>
-        </tr>
-    }
-
-</table>
+<div id="tablo-container">
+    <!-- Özel div oluşturuyoruz -->
+    <table class="table table-group-divider" id="tbl1" style="width:97%; margin-left:20px;">
+        <thead>
+            <tr>
+                <th>Satış İd</th>
+                <th>Ürün</th>
+                <th>Cari</th>
+                <th>Fiyat</th>
+                <th>Adet</th>
+                <th>Toplam</th>
+                <th>Tarih</th>
+                <th>Yazdır</th>
+            </tr>
+        </thead>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Satisid</td>
+                <td>@x.Urun.UrunAd</td>
+                <td>@x.Cariler.Cariad  @x.Cariler.CariSoyadı</td>
+                <td>@x.Fiyat</td>
+                <td>@x.Adet</td>
+                <td>@x.ToplamTutar</td>
+                <td>@x.Tarih</td>
+                <td><a href="#" onclick="generatePDF(@x.Personelid)" class="btn btn-primary" style="background-color: dodgerblue">Yazdır</a></td>
+            </tr>
+        }
+    </table>
+</div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
@@ -50,4 +50,16 @@
 <script>
     $('#tbl1').dataTable({});
 </script>
-
+@section Scripts {
+    <script>
+        function generatePDF(id) {
+            $.post('@Url.Action("GeneratePDF", "DepartmanController", new { id = "__id__" })'.replace('__id__', id))
+                .done(function () {
+                    window.location.href = '@Url.Action("DownloadPDF", "DepartmanController")';
+                })
+                .fail(function () {
+                    alert('PDF oluşturma işleminde bir hata oluştu.');
+                });
+        }
+    </script>
+}
