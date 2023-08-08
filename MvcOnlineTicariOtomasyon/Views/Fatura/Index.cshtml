@@ -1,0 +1,85 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<Faturalar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<div class="card mb-4" style="margin-top:20px;">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Faturalar</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="tbl1" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Fatura Seri No</th>
+                        <th>Fatura Sıra No</th>
+                        <th>Fatura Tarih</th>
+                        <th>Vergi Dairesi</th>
+                        <th>Saat</th>
+                        <th>Toplam</th>
+                        <th>Teslim Eden</th>
+                        <th>Teslim Alan</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Fatura Seri No</th>
+                        <th>Fatura Sıra No</th>
+                        <th>Fatura Tarih</th>
+                        <th>Vergi Dairesi</th>
+                        <th>Saat</th>
+                        <th>Toplam</th>
+                        <th>Teslim Eden</th>
+                        <th>Teslim Alan</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var k in Model)
+                    {
+                        <tr>
+                            <td>@k.Faturaid</td>
+                            <td>@k.FaturaSerino</td>
+                            <td>@k.FaturaSıraNo</td>
+                            <td>@k.Tarih</td>
+                            <td>@k.VergiDairesi</td>
+                            <td>@k.Saat</td>
+                            <td>@k.Toplam</td>
+                            <td>@k.TeslimEden</td>
+                            <td>@k.TeslimAlan</td>
+                            <td>
+                                <a href="/Cari/CariGetir/@k.Faturaid" class="btn btn-primary" style="width:100px;">Güncelle</a>
+                                <a href="/Cari/MusteriSatis/@k.Faturaid" class="btn btn-dark">Detaylar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<a href="/Fatura/FaturaEkle" class="btn btn-primary" style="margin-left:20px;">Yeni Fatura Ekle</a>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>
+

@@ -1,0 +1,36 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Sınıflar.Faturalar
+@{
+    ViewBag.Title = "FaturaEkle";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<br />
+<h2 style="margin-left:20px;">Yeni Departman Sayfası</h2>
+<br />
+<form style="margin-left:20px;" class="form-group" method="post">
+    <label for="KategoriAd">Fatura Seri No giriniz:</label>
+    @Html.TextBoxFor(x => x.FaturaSerino, new { @class = "form-control", required = "required" })
+
+    <label for="KategoriAd">Fatura Sıra No giriniz:</label>
+    @Html.TextBoxFor(x => x.FaturaSıraNo, new { @class = "form-control", required = "required" })
+
+    <label for="KategoriAd">Tarih Giriniz:</label>
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", required = "required" })
+
+    <label for="KategoriAd">Vergi Dairesini Giriniz:</label>
+    @Html.TextBoxFor(x => x.VergiDairesi, new { @class = "form-control", required = "required" })
+
+    <label for="KategoriAd">Saat Giriniz:</label>
+    @Html.TextBoxFor(x => x.Saat, new { @class = "form-control", required = "required" })
+
+    <label for="KategoriAd">Teslim Edeni Giriniz:</label>
+    @Html.TextBoxFor(x => x.TeslimEden, new { @class = "form-control", required = "required" })
+
+    <label for="KategoriAd">Teslim Alanı Giriniz:</label>
+    @Html.TextBoxFor(x => x.TeslimAlan, new { @class = "form-control", required = "required" })
+
+
+
+    <button class="btn btn-info" style="margin-top:10px;">Kaydet</button>
+</form>
+
