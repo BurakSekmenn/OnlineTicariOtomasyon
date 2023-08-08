@@ -1,0 +1,45 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Sınıflar.Faturalar
+@{
+    ViewBag.Title = "FaturaGetir";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<br />
+<h2 style="margin-left:20px;"> Fatura Güncelleme</h2>
+<br />
+@using (Html.BeginForm("FaturaGuncelle", "Fatura", FormMethod.Post))
+{
+    <div class="form-group" style="margin-left:20px;">
+        <label for="KategoriAd">Fatura Seri No giriniz:</label>
+        @Html.TextBoxFor(x => x.FaturaSerino, new { @class = "form-control", required = "required" })
+    </div>
+    <div class="form-group" style="margin-left:20px;">
+        <<label for="KategoriAd">Fatura Sıra No giriniz:</label>
+        @Html.TextBoxFor(x => x.FaturaSıraNo, new { @class = "form-control", required = "required" })
+    </div>
+    <div class="form-group" style="margin-left:20px;">
+        <label for="KategoriAd">Tarih Giriniz:</label>
+        @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", required = "required" })
+    </div>
+    <div class="form-group" style="margin-left:20px;">
+        <label for="KategoriAd">Vergi Dairesini Giriniz:</label>
+        @Html.TextBoxFor(x => x.VergiDairesi, new { @class = "form-control", required = "required" })
+    </div>
+    <div class="form-group" style="margin-left:20px;">
+        <label for="KategoriAd">Saat Giriniz:</label>
+        @Html.TextBoxFor(x => x.Saat, new { @class = "form-control", required = "required" })
+    </div>
+    <div class="form-group" style="margin-left:20px;">
+        <label for="KategoriAd">Teslim Edeni Giriniz:</label>
+        @Html.TextBoxFor(x => x.TeslimEden, new { @class = "form-control", required = "required" })
+    </div>
+    <div class="form-group" style="margin-left:20px;">
+        <label for="KategoriAd">Teslim Alanı Giriniz:</label>
+        @Html.TextBoxFor(x => x.TeslimAlan, new { @class = "form-control", required = "required" })
+    </div>
+    @Html.HiddenFor(x => x.Faturaid)
+    <button class="btn btn-warning" style="margin-left:20px;">Güncelle</button>
+}
+
+
+
