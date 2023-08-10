@@ -46,10 +46,11 @@
                             <td>@u.AlisFiyat</td>
                             <td>@u.SatisFiyat</td>
                             <td>@u.Kategori.KategoriAd</td>
-                            <td>@u.UrunGorsel</td>
+                            <td><img src="@u.UrunGorsel" style="width:200px; height:100px;" /></td>
                             <td>
                                 <a href="/Urun/UrunSil/@u.Urunid" class="btn btn-primary">Sil</a>
                                 <a href="/Urun/UrunGuncelle/@u.Urunid" class="btn btn-danger">Güncelle</a>
+                                <a href="/UrunDetay/Index/@u.Urunid" class="btn btn-dark" style="margin-top:10px">Urun Detaya Git</a>
                             </td>
                         </tr>
                     }
