@@ -65,7 +65,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         public PartialViewResult Partial1()
         {
             var sorgu2 = from x in c.Personels
-                         group x by x.Departmanid into g
+                         group x by x.Departman.DepartmanAd into g
                          select new SinifGrup2
                          {
                              Departman = g.Key,
@@ -90,7 +90,15 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         }
         public PartialViewResult Partial4()
         {
-
+            var sorgu3 = from x in c.Uruns
+                         group x by x.Marka into g
+                         select new SinifGrup3
+                         {
+                             marka = g.Key,
+                             sayi = g.Count()
+                         };
+            var sıralıSorgu3 = sorgu3.OrderByDescending(g => g.sayi).ToList();
+            return PartialView(sıralıSorgu3.ToList());
         }
 
     }
