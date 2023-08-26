@@ -4,6 +4,15 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Admin.cshtml";
 }
+<br />
+@using (Html.BeginForm("Index", "Urun", FormMethod.Get))
+            {
+                <p style="margin-left:10px;">
+                    Ürün Adı : @Html.TextBox("p") 
+                    <input type="submit" class="btn btn-primary" value="ara"/>
+                </p>
+            }
+<br />
 <div class="card mb-4" style="margin-top:20px;">
     <div class="card-header"><i class="fas fa-table mr-1"></i>Ürünler</div>
     <div class="card-body">
