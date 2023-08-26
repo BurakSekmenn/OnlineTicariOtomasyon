@@ -12,9 +12,9 @@
             <table class="table table-bordered" id="tbl1" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Fatura Seri No</th>
-                        <th>Fatura Sıra No</th>
+                     
+                        <th>Fatura Seri Sıra No</th>
+                    
                         <th>Fatura Tarih</th>
                         <th>Vergi Dairesi</th>
                         <th>Saat</th>
@@ -26,9 +26,9 @@
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>ID</th>
-                        <th>Fatura Seri No</th>
-                        <th>Fatura Sıra No</th>
+                      
+                        <th>Fatura Seri Sıra No</th>
+                       
                         <th>Fatura Tarih</th>
                         <th>Vergi Dairesi</th>
                         <th>Saat</th>
@@ -42,9 +42,9 @@
                     @foreach (var k in Model)
                     {
                         <tr>
-                            <td>@k.Faturaid</td>
-                            <td>@k.FaturaSerino</td>
-                            <td>@k.FaturaSıraNo</td>
+                            
+                            <td>@k.FaturaSerino @k.FaturaSıraNo</td>
+                           
                             <td>@k.Tarih</td>
                             <td>@k.VergiDairesi</td>
                             <td>@k.Saat</td>

@@ -15,7 +15,7 @@
     <table class="table table-group-divider" id="tbl1" style="width:97%; margin-left:20px;">
         <thead>
             <tr>
-                <th>Satış İd</th>
+          
                 <th>Ürün</th>
                 <th>Cari</th>
                 <th>Fiyat</th>
@@ -28,12 +28,12 @@
         @foreach (var x in Model)
         {
             <tr>
-                <td>@x.Satisid</td>
+                
                 <td>@x.Urun.UrunAd</td>
                 <td>@x.Cariler.Cariad  @x.Cariler.CariSoyadı</td>
-                <td>@x.Fiyat</td>
+                <td>@x.Fiyat ₺</td>
                 <td>@x.Adet</td>
-                <td>@x.ToplamTutar</td>
+                <td>@x.ToplamTutar ₺</td>
                 <td>@x.Tarih</td>
                 <td><a href="#" onclick="generatePDF(@x.Personelid)" class="btn btn-primary" style="background-color: dodgerblue">Yazdır</a></td>
             </tr>
