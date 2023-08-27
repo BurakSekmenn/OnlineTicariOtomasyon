@@ -43,10 +43,18 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         }
         public ActionResult FaturaDetay(int id)
         {
+            
             var deger = c.FaturaKalems.Where(x => x.Faturaid == id).ToList();
             var dpt = c.Faturalars.Where(x => x.Faturaid == id).Select(y => "Fatura Serino: " + y.FaturaSerino + " Fatura Sıra No: " + y.FaturaSıraNo + " Saat: " + y.Saat).First();
             ViewBag.d = dpt;
             return View(deger);
+        }
+        public ActionResult PartialInvoiceDetail(int id)
+        {
+            ViewBag.list = c.Faturalars.Where(x => x.Faturaid == id).ToList();
+            ViewBag.value = c.Faturalars.Where(x => x.Faturaid == id)
+                .Select(y => y.FaturaSerino + " " + y.FaturaSıraNo).FirstOrDefault();
+            return PartialView("PartialInvoiceDetail");
         }
         [HttpGet]
         public ActionResult YeniKalem()

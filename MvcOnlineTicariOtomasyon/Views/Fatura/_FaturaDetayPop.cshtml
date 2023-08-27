@@ -1,0 +1,22 @@
+﻿@if (Model != null && Model.Count > 0)
+{
+    <table class="table table-bordered">
+        <tr>
+            <td>Açıklama</td>
+            <td>Birim Fiyat</td>
+            <td>Tutar</td>
+        </tr>
+        @foreach (var faturaKalem in Model)
+        {
+            <tr>
+                <td>@faturaKalem.Aciklama</td>
+                <td>@faturaKalem.BirimFiyat</td>
+                <td>@faturaKalem.Tutar</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>Fatura kalemi verisi bulunamadı.</p>
+}

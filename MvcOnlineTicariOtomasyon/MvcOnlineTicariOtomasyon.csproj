@@ -156,6 +156,7 @@
     <Compile Include="Models\Sınıflar\Departman.cs" />
     <Compile Include="Models\Sınıflar\Detay.cs" />
     <Compile Include="Models\Sınıflar\FaturaKalem.cs" />
+    <Compile Include="Models\Sınıflar\FaturaKalemViewModel.cs" />
     <Compile Include="Models\Sınıflar\Faturalar.cs" />
     <Compile Include="Models\Sınıflar\Gider.cs" />
     <Compile Include="Models\Sınıflar\Kategori.cs" />
@@ -2928,9 +2929,12 @@
     <Content Include="Views\Shared\_CariLayout.cshtml" />
     <Content Include="Views\CariPanel\Index.cshtml" />
     <Content Include="Views\CariPanel\Siparislerim.cshtml" />
+    <Content Include="Views\Fatura\_FaturaDetayPop.cshtml" />
+    <Content Include="Views\Fatura\PartialInvoiceDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\FaturaKalemViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
