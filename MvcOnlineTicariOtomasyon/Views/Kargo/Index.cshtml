@@ -1,0 +1,79 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Sınıflar
+@model List<KargoDetay>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<div class="card mb-4" style="margin-top:20px;">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Cariler</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="tbl1" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Kargo Açıklama</th>
+                        <th>Kargo Takip Kodu</th>
+                        <th>Kargoya veren Personel</th>
+                        <th>Kargo Alacak kişi</th>
+                        <th>Kargo Tarihi</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Kargo Açıklama</th>
+                        <th>Kargo Takip Kodu</th>
+                        <th>Kargoya veren Personel</th>
+                        <th>Kargo Alacak kişi</th>
+                        <th>Kargo Tarihi</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var k in Model)
+                    {
+                        <tr>
+                            <td>@k.KargoDetayid</td>
+                            <td>@k.Aciklama</td>
+                            <td>@k.TakipKodu</td>
+                            <td>@k.Personel</td>
+                            <td>@k.Alıcı</td>
+                            <td>@k.Tarih</td>
+
+
+                            <td>
+                                
+                                <a href="/Kargo/KargoTakip/@k.TakipKodu" class="btn btn-dark">Detaylar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<a href="/Kargo/YeniKargo" class="btn btn-primary" style="margin-left:20px;">Yeni Kargo Girişi</a>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>
+
+
