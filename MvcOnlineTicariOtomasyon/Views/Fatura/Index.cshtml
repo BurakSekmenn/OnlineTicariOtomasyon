@@ -53,8 +53,7 @@
                             <td>
                                 <a href="/Fatura/FaturaGetir/@k.Faturaid" class="btn btn-primary" style="width:100px;">Güncelle</a>
                                 <a href="/Fatura/FaturaDetay/@k.Faturaid" class="btn btn-dark">Detaylar</a>
-                                <a href="javascript:;" class="details btn btn-secondary btn-sm">Detay</a>
-                            <a href="/Fatura/FaturaDetay/@k.Faturaid" class="btn btn-success" style="width:150px; margin-top:10px;">Yeni Kalem Ekle </a>
+                                 <a href="/Fatura/FaturaDetay/@k.Faturaid" class="btn btn-success" style="width:150px;">Yeni Kalem Ekle </a>
                             </td>
                         </tr>
 
@@ -65,29 +64,7 @@
     </div>
 </div>
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous" />
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script type="text/javascript">
-    $(function () {
-        $("#table table-bordered .details").click(function () {
-            var id = $(this).closest("tr").find("td").eq(0).html();
-            $.ajax({
-                type: "POST",
-                url: "/Invoice/PartialInvoiceDetail",
-                data: '{id: "' + id + '" }',
-                contentType: "application/json; charset=utf-8",
-                dataType: "html",
-                success: function (response) {
-                    $("#partialModal").find(".modal-body").html(response);
-                    $("#partialModal").modal('show');
-                }
-            });
-        });
-    });
-</script>
+
 
 
 <a href="/Fatura/FaturaEkle" class="btn btn-primary" style="margin-left:20px;">Yeni Fatura Ekle</a>

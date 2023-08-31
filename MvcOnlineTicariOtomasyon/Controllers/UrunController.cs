@@ -74,5 +74,38 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             return RedirectToAction("Index");
 
         }
+        [HttpGet]
+        public ActionResult SatisYap(int id)
+        {
+            List<SelectListItem> personel = (from x in c.Personels.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.PersonelAd + " " + x.PersonelSoyadı,
+
+                                               Value = x.Personelid.ToString()
+                                           }).ToList();
+            List<SelectListItem> cari = (from x in c.Carilers.ToList()
+                                         select new SelectListItem
+                                         {
+                                             Text = x.Cariad + " " + x.CariSoyadı,
+                                             Value = x.Cariid.ToString()
+                                         }).ToList();
+            ViewBag.personel=personel;
+            ViewBag.cari=cari;
+
+            var deger = c.Uruns.Find(id);
+            ViewBag.dgr1 = deger.Urunid;
+            ViewBag.dgr2 = deger.SatisFiyat;
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult SatisYap(SatisHareket k)
+        {
+            k.Tarih=DateTime.Parse(DateTime.Now.ToShortDateString());
+            c.SatisHarekets.Add(k);
+            c.SaveChanges();
+            return RedirectToAction("Index","Satis");
+        }
     }
 }

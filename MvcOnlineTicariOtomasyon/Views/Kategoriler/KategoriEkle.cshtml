@@ -4,14 +4,19 @@
     ViewBag.Title = "KategoriEkle";
     Layout = "~/Views/Shared/Admin.cshtml";
 }
-
+<script src="~/Scripts/jquery-3.4.1.js"></script>
 <br />
 <h2 style="margin-left:20px;">Yeni Kategori Sayfası</h2>
 <br />
 <form style="margin-left:20px;" class="form-group" method="post">
     <label for="KategoriAd">Kategori adı giriniz:</label>
-    @Html.TextBoxFor(x=>x.KategoriAd, new {@class="form-control", required = "required" }) 
-    <button class="btn btn-info" style="margin-top:10px;">Kaydet</button>
+    @Html.TextBoxFor(x => x.KategoriAd, new { @class = "form-control", required = "required" })
+    <button class="btn btn-info" style="margin-top:10px;" id="Btn1">Kaydet</button>
+    <script>
+        $('#Btn1').click(function () {
+            alert("Kategori Başarılı Bir şekilde eklendi")
+        });
+    </script>
 
 </form>
 

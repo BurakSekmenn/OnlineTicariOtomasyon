@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -32,8 +33,15 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         [HttpPost]
         public ActionResult PersonelEkle(Personel k)
         {
-           
 
+            if (Request.Files.Count > 0)
+            {
+                string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
+                string uzanti = Path.GetExtension(Request.Files[0].FileName);
+                string yol = "~/image/"+dosyaadi+uzanti;
+                Request.Files[0].SaveAs(Server.MapPath(yol));
+                k.PersonelGorsel = "/image/" + dosyaadi + uzanti;
+            }
             c.Personels.Add(k);
             c.SaveChanges();
             return RedirectToAction("Index");
@@ -58,6 +66,17 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         }
         public ActionResult PersonelGuncelle (Personel per)
         {
+            if (Request.Files.Count > 0)
+            {
+                string dosyaadi = Path.GetFileName(Request.Files[0].FileName);
+                string uzanti = Path.GetExtension(Request.Files[0].FileName);
+                string yol = "~/image/" + dosyaadi + uzanti;
+                Request.Files[0].SaveAs(Server.MapPath(yol));
+                per.PersonelGorsel = "/image/" + dosyaadi + uzanti;
+            }
+
+
+
             var personel=c.Personels.Find(per.Personelid);
             personel.PersonelAd = per.PersonelAd;
             personel.PersonelSoyadı = per.PersonelSoyadı;

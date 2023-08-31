@@ -54,7 +54,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             ViewBag.list = c.Faturalars.Where(x => x.Faturaid == id).ToList();
             ViewBag.value = c.Faturalars.Where(x => x.Faturaid == id)
                 .Select(y => y.FaturaSerino + " " + y.FaturaSıraNo).FirstOrDefault();
-            return PartialView("PartialInvoiceDetail");
+            return PartialView("_FaturaDetayPop");
         }
         [HttpGet]
         public ActionResult YeniKalem()
