@@ -1,6 +1,5 @@
 # Asp.net Mvc5 İle Yaptığım Ticari Otomasyon
-[TR] Mvc mimarisini kullanarak yaptığım projem.
-* Özellikleri
+[TR] Mvc mimarisini kullanarak yaptığım projem. 
 * Cari,Personel,Ürün,Gider vb Ekle-Güncelle-Silme 
 * Google Chart Kullanımı
 * Qr Code ile kargo takip işlemi yapma Api kullanmadan
