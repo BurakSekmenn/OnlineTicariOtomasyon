@@ -4,26 +4,30 @@
     ViewBag.Title = "Siparislerim";
     Layout = "~/Views/Shared/_CariLayout.cshtml";
 }
-<br />
-<h2>Siparis Geçmişim</h2>
-<br />
 
 
-<table class="table table-bordered">
-    <tr>
-        <th>Ürün Adı</th>
-        <th>Ürün Fiyat</th>
-        <th>Ürün Alınma Tarihi</th>
-    </tr>
-    @foreach (var x in Model)
-    {
+<div style="margin-left:20px">
+    <br />
+    <h2>Siparis Geçmişim</h2>
+    <br />
+    <table class="table table-bordered">
         <tr>
-            <td>@x.Urun.UrunAd</td>
-            <td>@x.Fiyat</td>
-            <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MM/yyyy")</td>
-            
-        </tr>   
-    }
+            <th>Ürün Adı</th>
+            <th>Ürün Fiyat</th>
+            <th>Ürün Alınma Tarihi</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Urun.UrunAd</td>
+                <td>@x.Fiyat</td>
+                <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MM/yyyy")</td>
 
-</table>
+            </tr>
+
+        }
+
+    </table>
+</div>
+
 

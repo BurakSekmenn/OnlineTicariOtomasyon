@@ -5,17 +5,18 @@
     Layout = "~/Views/Shared/_CariLayout.cshtml";
 }
 
-@using (Html.BeginForm("KargoTakip", "CariPanel", FormMethod.Get))
-            {
-                <p>
-                    Kargo Takip Numarası : @Html.TextBox("p")
-                    <input type="submit" value="Ara" />
-                </p>
-            }
 
 
 
-<div class="card mb-4" style="margin-top:20px;">
+<div class="card mb-4" style="margin-top:20px; margin-left:20px;">
+    @using (Html.BeginForm("KargoTakip", "CariPanel", FormMethod.Get))
+    {
+        <p>
+            Kargo Takip Numarası : @Html.TextBox("p")
+            <input type="submit" value="Ara" />
+        </p>
+    }
+
     <div class="card-header"><i class="fas fa-table mr-1"></i>Cariler</div>
     <div class="card-body">
         <div class="table-responsive">

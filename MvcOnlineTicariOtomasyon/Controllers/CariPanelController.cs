@@ -15,16 +15,23 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         public ActionResult Index()
         {
             var mail = (string)Session["CariMail"];
-            var degerler = c.Carilers.Where(x => x.CariMail == mail).ToList();
+            var degerler = c.mesajlars.Where(x => x.Alici == mail).ToList();
             ViewBag.m = mail;
             var mailid = c.Carilers.Where(x => x.CariMail == mail).Select(y => y.Cariid).FirstOrDefault();
             ViewBag.mid=mailid;
             var toplamsatis = c.SatisHarekets.Where(x => x.Cariid == mailid).Count();
             ViewBag.toplamsatis=toplamsatis;
-            var toplamtutar = c.SatisHarekets.Where(x => x.Cariid == mailid).Sum(y => y.ToplamTutar);
-            ViewBag.toplamtutar=toplamtutar;
-            var toplamurunsayisi = c.SatisHarekets.Where(x => x.Cariid == mailid).Sum(y => y.Adet);
-            ViewBag.toplamurunsayisi = toplamurunsayisi;
+            var toplamtutar = c.SatisHarekets
+            .Where(x => x.Cariid == mailid)
+            .Sum(y => (decimal?)y.ToplamTutar);
+            ViewBag.toplamtutar = toplamtutar ?? 0;
+            var toplamurunsayisi = c.SatisHarekets
+            .Where(x => x.Cariid == mailid)
+            .Sum(y => (int?)y.Adet);
+            ViewBag.toplamurunsayisi = toplamurunsayisi ?? 0;
+            var cariadsoyad = c.Carilers.Where(x => x.CariMail == mail).Select(y => y.Cariad +" "+ y.CariSoyadı).FirstOrDefault();
+            ViewBag.cariadsoyad=cariadsoyad;
+            ViewBag.mail=mail;
             return View(degerler);
         }
         [Authorize]
@@ -110,5 +117,31 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
             return RedirectToAction("Index", "Login");
         } 
+
+        public PartialViewResult Partial1()
+        {
+            var mail = (string)Session["CariMail"];
+            var id = c.Carilers.Where(x => x.CariMail == mail).Select(y => y.Cariid).FirstOrDefault();
+            var caribul = c.Carilers.Find(id);
+            return PartialView("Partial1",caribul);
+        }
+        public PartialViewResult Partial2()
+        {
+            var veriler = c.mesajlars.Where(x => x.Gonderici == "admin").ToList();
+            return PartialView(veriler);
+        }
+        public ActionResult CariBilgiGüncelle(Cariler cr)
+        {
+            var cari = c.Carilers.Find(cr.Cariid);
+            cari.Cariad = cr.Cariad;
+            cari.CariSoyadı = cr.CariSoyadı;
+            cari.CariMail= cr.CariMail;
+            cari.CariSifre = cr.CariSifre;
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
+
     }
 }
