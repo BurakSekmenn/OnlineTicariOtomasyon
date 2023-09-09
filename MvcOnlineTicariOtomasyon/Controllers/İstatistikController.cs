@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using MvcOnlineTicariOtomasyon.Models.Sınıflar;
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+
     public class İstatistikController : Controller
     {
         Context c = new Context();

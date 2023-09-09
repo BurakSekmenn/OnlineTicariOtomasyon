@@ -7,21 +7,25 @@ using MvcOnlineTicariOtomasyon.Models.Sınıflar;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    
     public class DepartmanController : Controller
     {
         // GET: Departman
         Context c = new Context();
+       
         public ActionResult Index()
         {
             var degerler = c.Departmans.Where(x=>x.Durum==true).ToList();
             return View(degerler);
         }
         [HttpGet]
+        [Authorize]
         public ActionResult DepartmanEkle() 
         {
             return View(); 
         }
         [HttpPost]
+     
         public ActionResult DepartmanEkle(Departman k)
         {
             c.Departmans.Add(k);

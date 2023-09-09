@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+   
     public class QRController : Controller
     {
         // GET: QR

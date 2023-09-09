@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+ 
     public class YapilacaController : Controller
     {
         Context c = new Context();

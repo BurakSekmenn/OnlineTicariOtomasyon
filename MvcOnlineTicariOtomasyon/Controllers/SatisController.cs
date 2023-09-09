@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using MvcOnlineTicariOtomasyon.Models.Sınıflar;
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    
     public class SatisController : Controller
     {
         // GET: Satis

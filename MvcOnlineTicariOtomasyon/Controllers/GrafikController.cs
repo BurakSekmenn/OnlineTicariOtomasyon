@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+  
     public class GrafikController : Controller
     {
         // GET: Grafik

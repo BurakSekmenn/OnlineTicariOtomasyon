@@ -7,6 +7,7 @@ using MvcOnlineTicariOtomasyon.Models.Sınıflar;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+ 
     public class KategorilerController : Controller
     {
         // GET: Kategoriler

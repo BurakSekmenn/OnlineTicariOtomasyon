@@ -7,6 +7,7 @@ using System.Web.Security;
 using MvcOnlineTicariOtomasyon.Models.Sınıflar;
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+   
     public class CariPanelController : Controller
     {
         // GET: CariPanel
