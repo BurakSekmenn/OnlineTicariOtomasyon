@@ -1,3 +1,8 @@
+Girşi Bilgileri:<br><br>
+*Cari Girişi için mail ve şifre;<br>
+ Mail: burakadmin@gmail.com &&& Şifre:a <br><br>
+*Personel Girişi için mail ve şifre:<br>
+ K.adı:burak &&& Şifre:123<br>
 # Asp.net Mvc5 İle Yaptığım Ticari Otomasyon
 [TR] Mvc mimarisini kullanarak yaptığım projem. 
 * Cari,Personel,Ürün,Gider vb Ekle-Güncelle-Silme 
