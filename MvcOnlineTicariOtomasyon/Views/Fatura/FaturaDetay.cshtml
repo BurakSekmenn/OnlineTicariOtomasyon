@@ -20,7 +20,7 @@
         <th>Miktar</th>
         <th>Birim Fiyat </th>
         <th>Tutar</th>
-      
+
     </tr>
     @foreach (var x in Model)
     {
@@ -30,11 +30,11 @@
             <td>@x.Miktar</td>
             <td>@x.BirimFiyat</td>
             <td>@x.Tutar</td>
-           
+
         </tr>
 
     }
 
 </table>
-<a href="/Fatura/YeniKalem/" class="btn btn-dark" style="margin-left:20px" >Fatura Kalem Ekle</a>
+<a href="/Fatura/YeniKalem/@ViewBag.faturaid" class="btn btn-dark" style="margin-left:20px">Fatura Kalem Ekle</a>
 

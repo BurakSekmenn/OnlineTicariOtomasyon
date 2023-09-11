@@ -1,9 +1,24 @@
-﻿
+﻿@model MvcOnlineTicariOtomasyon.Models.Sınıflar.FaturaKalem
 @{
     ViewBag.Title = "YeniKalem";
     Layout = "~/Views/Shared/Admin.cshtml";
 }
 
 <h2>YeniKalem</h2>
+<form style="margin-left:20px;" class="form-group" method="post">
+    <label>Urun açıklama giriniz:</label>
+    @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control", required = "required" })
 
-Burası İleriki Videolarda düzelecek Kalsın böyle
+    <label>Urun miktar giriniz:</label>
+    @Html.TextBoxFor(x => x.Miktar, new { @class = "form-control", required = "required" })
+
+    <label>Urun birim fiyatı giriniz:</label>
+    @Html.TextBoxFor(x => x.BirimFiyat, new { @class = "form-control", required = "required" })
+
+    <label>Toplam Tutarı Giriniz:</label>
+    @Html.TextBoxFor(x => x.Tutar, new { @class = "form-control", required = "required" })
+
+    
+    <button class="btn btn-info" style="margin-top:10px;">Kaydet</button>
+
+</form>
